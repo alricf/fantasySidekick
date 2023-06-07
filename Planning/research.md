@@ -21,6 +21,10 @@ Endpoints
 - elements (player data per event_id or gameweek_id)
 
 5. Manager/User Basic Information: https://fantasy.premierleague.com/api/entry/{manager_id}/
+- manager_id can be verified through the fpl url in the points section.
+- object with single values besides leagues key which is an object.
+- leagues (all manager league data)
+
 6. Manager/User’s History: https://fantasy.premierleague.com/api/entry/{manager_id}/history/
 7. Classic League Standings: https://fantasy.premierleague.com/api/leagues-classic/{league_id}/standings
 8. My Team (authentication required): https://fantasy.premierleague.com/api/my-team/{manager_id}/
