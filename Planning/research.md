@@ -3,9 +3,23 @@ FPL API base URL: https://fantasy.premierleague.com/api/
 
 Endpoints  
 1. General Information: https://fantasy.premierleague.com/api/bootstrap-static/
+- Object with array key values besides game_settings which is an object
+- events (current season gameweek stats), teams (team id/name), elements (player stats), element_types (player position id)
+
 2. Fixtures: https://fantasy.premierleague.com/api/fixtures/
-3. Player's Detailed Data: https://fantasy.premierleague.com/api/element-summary/{element_id}/ 
+- Array with object values
+- fixture information (event/gameweek, id/fixture stats/identifier/fixture with team + element/player stat)
+
+3. Player's Detailed Data: https://fantasy.premierleague.com/api/element-summary/{element_id}/
+- element_id or player_id (refer to elements key in #1 in this list) i.e: 3
+- Object with array key values
+- fixtures (future fixture player data), history (current season player stats per gameweek), history_past (past seasonal player stats overall)
+
 4. Gameweek Live Data: https://fantasy.premierleague.com/api/event/{event_id}/live/
+- event_id or gameweek_id (refer to events key in #1 in this list)
+- Object with 1 array key value
+- elements (player data per event_id or gameweek_id)
+
 5. Manager/User Basic Information: https://fantasy.premierleague.com/api/entry/{manager_id}/
 6. Manager/User’s History: https://fantasy.premierleague.com/api/entry/{manager_id}/history/
 7. Classic League Standings: https://fantasy.premierleague.com/api/leagues-classic/{league_id}/standings
