@@ -45,3 +45,12 @@ Endpoints
 - event_id or gameweek_id (refer to events key in #1 in this list)
 - Object with 2 array key values, 1 object key value and a single key value.
 - entry_history (information about gameweek i.e. points), picks (information about gameweek player selection)
+
+List of unique endpoint variables (Entity)
+1. element_id (Player)
+
+2. event_id (Current Season Gameweek)
+
+3. manager_id (Manager)
+
+4. league_id (League)
