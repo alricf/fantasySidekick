@@ -41,3 +41,7 @@ Endpoints
 - picks (current season list of players picked by manager), chips (current season chips status), transfers (current season information about last transfer)
 
 9. Manager/User’s Team Per Gameweek: https://fantasy.premierleague.com/api/entry/{manager_id}/event/{event_id}/picks/
+- manager_id can be verified through the fpl url in the points section.
+- event_id or gameweek_id (refer to events key in #1 in this list)
+- Object with 2 array key values, 1 object key value and a single key value.
+- entry_history (information about gameweek i.e. points), picks (information about gameweek player selection)
