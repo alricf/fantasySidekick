@@ -36,4 +36,8 @@ Endpoints
 - league (classic league information i.e. name), standings (information about managers in the league i.e. rank)
 
 8. My Team (authentication required): https://fantasy.premierleague.com/api/my-team/{manager_id}/
+- manager_id can be verified through the fpl url in the points section.
+- Object with 2 array key values and 1 array key value
+- picks (current season list of players picked by manager), chips (current season chips status), transfers (current season information about last transfer)
+
 9. Manager/User’s Team Per Gameweek: https://fantasy.premierleague.com/api/entry/{manager_id}/event/{event_id}/picks/
