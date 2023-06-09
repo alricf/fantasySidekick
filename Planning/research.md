@@ -16,7 +16,7 @@ Endpoints
 3. Player's Detailed Data: https://fantasy.premierleague.com/api/element-summary/{element_id}/
 - element_id or player_id (refer to elements key in #1 in this list) i.e: 3
 - Object with array key values
-- fixtures (future fixture player data), history (current season player stats per gameweek), history_past (past seasonal player stats overall)
+- fixtures (future fixture player data), history (current season player stats per gameweek - Chart player statistics vs fixtures), history_past (past seasonal player stats overall)
 
 4. Gameweek Live Data: https://fantasy.premierleague.com/api/event/{event_id}/live/
 - event_id or gameweek_id (refer to events key in #1 in this list)
