@@ -31,7 +31,7 @@ Endpoints
 6. Manager/User’s History: https://fantasy.premierleague.com/api/entry/{manager_id}/history/
 - manager_id can be verified through the fpl url in the points section.
 - object with array key values
-- current (current seasonal gameweek data), past (past seasonal data), chips (current seasonal chip usage data)
+- current (current seasonal gameweek data - home), past (past seasonal data - home), chips (current seasonal chip usage data)
 
 7. Classic League Standings: https://fantasy.premierleague.com/api/leagues-classic/{league_id}/standings
 - league_id can be verified through the fpl url in the Leagues & Cups section.
