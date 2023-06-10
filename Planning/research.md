@@ -36,7 +36,7 @@ Endpoints
 7. Classic League Standings: https://fantasy.premierleague.com/api/leagues-classic/{league_id}/standings
 - league_id can be verified through the fpl url in the Leagues & Cups section.
 - object with object key values besides last_updated_data which is a date/time value.
-- league (classic league information i.e. name), standings (information about managers in the league i.e. rank)
+- league (classic league information i.e. name), standings (information about managers in the league i.e. rank - top 100 statistics, mini-league statistics)
 
 8. My Team (authentication required): https://fantasy.premierleague.com/api/my-team/{manager_id}/
 - manager_id can be verified through the fpl url in the points section.
