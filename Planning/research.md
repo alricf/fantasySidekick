@@ -57,3 +57,12 @@ List of unique endpoint variables (Entity)
 3. manager_id (Manager)
 
 4. league_id (League)
+
+ERD Entities
+- Players
+- Gameweeks
+- Managers
+- Leagues
+- Statistics
+- Graphs
+- Fixtures
