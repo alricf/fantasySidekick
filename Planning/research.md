@@ -66,3 +66,4 @@ ERD Entities
 - Statistics
 - Graphs
 - Fixtures
+- Teams
