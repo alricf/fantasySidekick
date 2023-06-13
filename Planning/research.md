@@ -59,11 +59,11 @@ List of unique endpoint variables (Entity)
 4. league_id (League)
 
 ERD Entities
-- Players
-- Gameweeks
-- Managers
-- Leagues
-- Statistics
-- Graphs
-- Fixtures
-- Teams
+- users
+- players
+- gameweeks
+- fixtures
+- clubs
+- managers
+- leagues
+- seasons
