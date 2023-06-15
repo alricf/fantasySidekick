@@ -67,3 +67,9 @@ ERD Entities
 - managers
 - leagues
 - seasons
+
+React Components
+- navBar
+- table
+- graph
+- inputs
