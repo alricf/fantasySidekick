@@ -59,14 +59,12 @@ List of unique endpoint variables (Entity)
 4. league_id (League)
 
 ERD Entities
-- users
-- players
-- gameweeks
+- bootstrap-static
 - fixtures
-- clubs
+- elements/players
+- events/gameweeks
 - managers
 - leagues
-- seasons
 
 React Components
 - navBar
