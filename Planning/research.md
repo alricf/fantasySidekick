@@ -58,13 +58,11 @@ List of unique endpoint variables (Entity)
 
 4. league_id (League)
 
-ERD Entities
-- bootstrap-static
-- fixtures
-- elements/players
-- events/gameweeks
-- managers
-- leagues
+ERD Entity notes
+- elements/players: history (4 with gameweeks for Chart page)
+- events/gameweeks: current, past (6 for home page to find season vs total points/rank data)
+- entries/managers: picks (9 to find manager picks and 6 to find chip usage for mini-league + top 100 pages)
+- leagues: standings (7 for mini-league + top 100 pages to find manager id for all managers in a league)
 
 React Components
 - navBar
