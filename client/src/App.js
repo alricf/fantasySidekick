@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
+import LineChart from "./components/LineChart";
 
 Chart.register(CategoryScale);
 
@@ -64,6 +65,7 @@ export default function App() {
   // Template
   return (
     <div className="App">
+      <LineChart homeChartData={homeChartData} />
     </div>
   );
 }
