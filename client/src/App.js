@@ -1,6 +1,8 @@
 // Imports
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
 
 // Mock data
 const homeData = [
