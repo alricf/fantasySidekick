@@ -100,16 +100,20 @@ export default function App() {
 
   // Template
   return (
-    <div className="App">
+    <div>
       {/* Chart Logic */}
-      <Button
-        onClick={showTotalPointsChart}
-        buttonText={"Season vs Total Points"}
-      />
-      <Button
-        onClick={showRankChart}
-        buttonText={"Season vs Rank"}
-      />
+      <div className={"flex justify-center"}>
+        <Button
+          className={"border-solid border-black bg-teal-500 border-2 mr-5"}
+          onClick={showTotalPointsChart}
+          buttonText={"Season vs Total Points"}
+        />
+        <Button
+          className={"border-solid border-black bg-teal-500 border-2 ml-5"}
+          onClick={showRankChart}
+          buttonText={"Season vs Rank"}
+        />
+      </div>
       {(!totalPointsChart && !rankChart) &&
         <LineChart
           chartData={homeTotalPointsChartData}
