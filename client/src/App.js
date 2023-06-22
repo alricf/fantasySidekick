@@ -4,6 +4,8 @@ import "./App.css";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 
+Chart.register(CategoryScale);
+
 // Mock data
 const homeData = [
   {
@@ -38,8 +40,26 @@ const homeData = [
   }
 ];
 
-function App() {
+export default function App() {
   // Hooks
+  const [homeChartData, sethomeChartData] = useState({
+    labels: homeData.map((data) => data.season_name),
+    datasets: [
+      {
+        label: "Total Points",
+        data: homeData.map((data) => data.total_points),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0"
+        ],
+        borderColor: "black",
+        borderWidth: 2
+      }
+    ]
+  });
 
   // Template
   return (
@@ -47,5 +67,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
