@@ -90,23 +90,34 @@ export default function App() {
   const showTotalPointsChart = () => {
     setTotalPointsChart(true);
     setRankChart(false);
-  }
+  };
 
   const showRankChart = () => {
     setRankChart(true);
     setTotalPointsChart(false);
-  }
+  };
 
   // Template
   return (
     <div className="App">
+      {/* Chart Logic */}
       <button onClick={showTotalPointsChart}>Season vs Total Points</button>
       <button onClick={showRankChart}>Season vs Rank</button>
-      {(!totalPointsChart && !rankChart) && <LineChart chartData={homeTotalPointsChartData} text={"Season vs. Total Points"}/>}
-      {totalPointsChart && <LineChart chartData={homeTotalPointsChartData} text={"Season vs. Total Points"} />}
-      {rankChart && <LineChart 
-      chartData={homeRankChartData} 
-      text={"Season vs. Rank"} />}
+      {(!totalPointsChart && !rankChart) &&
+        <LineChart
+          chartData={homeTotalPointsChartData}
+          text={"Season vs. Total Points"}
+        />}
+      {totalPointsChart &&
+        <LineChart
+          chartData={homeTotalPointsChartData}
+          text={"Season vs. Total Points"}
+        />}
+      {rankChart &&
+        <LineChart
+          chartData={homeRankChartData}
+          text={"Season vs. Rank"}
+        />}
     </div>
   );
 }
