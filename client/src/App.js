@@ -43,7 +43,9 @@ const homeData = [
 
 export default function App() {
   // Hooks
-  const [homeChartData, sethomeChartData] = useState({
+
+  // States
+  const [homeTotalPointsChartData, setHomeTotalPointsChartData] = useState({
     labels: homeData.map((data) => data.season_name),
     datasets: [
       {
@@ -62,10 +64,49 @@ export default function App() {
     ]
   });
 
+  const [homeRankChartData, setHomeRankChartData] = useState({
+    labels: homeData.map((data) => data.season_name),
+    datasets: [
+      {
+        label: "Total Points",
+        data: homeData.map((data) => data.rank),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0"
+        ],
+        borderColor: "black",
+        borderWidth: 2
+      }
+    ]
+  });
+
+  const [totalPointsChart, setTotalPointsChart] = useState(false);
+  const [rankChart, setRankChart] = useState(false);
+
+  // Helper Functions
+  const showTotalPointsChart = () => {
+    setTotalPointsChart(true);
+    setRankChart(false);
+  }
+
+  const showRankChart = () => {
+    setRankChart(true);
+    setTotalPointsChart(false);
+  }
+
   // Template
   return (
     <div className="App">
-      <LineChart homeChartData={homeChartData} />
+      <button onClick={showTotalPointsChart}>Season vs Total Points</button>
+      <button onClick={showRankChart}>Season vs Rank</button>
+      {(!totalPointsChart && !rankChart) && <LineChart chartData={homeTotalPointsChartData} text={"Season vs. Total Points"}/>}
+      {totalPointsChart && <LineChart chartData={homeTotalPointsChartData} text={"Season vs. Total Points"} />}
+      {rankChart && <LineChart 
+      chartData={homeRankChartData} 
+      text={"Season vs. Rank"} />}
     </div>
   );
 }
