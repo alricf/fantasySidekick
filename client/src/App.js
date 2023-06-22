@@ -4,6 +4,7 @@ import "./App.css";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import LineChart from "./components/LineChart";
+import Button from "./components/Button";
 
 Chart.register(CategoryScale);
 
@@ -101,8 +102,14 @@ export default function App() {
   return (
     <div className="App">
       {/* Chart Logic */}
-      <button onClick={showTotalPointsChart}>Season vs Total Points</button>
-      <button onClick={showRankChart}>Season vs Rank</button>
+      <Button
+        onClick={showTotalPointsChart}
+        buttonText={"Season vs Total Points"}
+      />
+      <Button
+        onClick={showRankChart}
+        buttonText={"Season vs Rank"}
+      />
       {(!totalPointsChart && !rankChart) &&
         <LineChart
           chartData={homeTotalPointsChartData}
