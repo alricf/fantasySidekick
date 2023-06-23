@@ -87,6 +87,8 @@ export default function App() {
   const [totalPointsChart, setTotalPointsChart] = useState(false);
   const [rankChart, setRankChart] = useState(false);
 
+  const [managerId, setManagerId] = useState("");
+
   // Helper Functions
   const showTotalPointsChart = () => {
     setTotalPointsChart(true);
@@ -101,6 +103,20 @@ export default function App() {
   // Template
   return (
     <div>
+      <form class="flex justify-center my-5">
+        <label>Manager ID:</label>
+        <input
+          type="text"
+          value={managerId}
+          onChange={(e) => setManagerId(e.target.value)}
+          className={"ml-5 border-solid border-2 border-black"}
+        />
+        <input
+          type="submit"
+          value="Submit"
+          className={"border-solid border-black bg-yellow-300 border-2 ml-5"}
+        />
+      </form>
       {/* Chart Logic */}
       <div className={"flex justify-center"}>
         <Button
