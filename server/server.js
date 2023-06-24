@@ -10,6 +10,14 @@ const PORT = 8000;
 app.use(cors());
 app.use(express.json());
 
+app.get('/home-data', (req, res) => {
+  fetch("https://fantasy.premierleague.com/api/entry/956735/history/")
+    .then((res) => res.json())
+    .then((data) => {
+      res.json({ message: data.past });
+    });
+});
+
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`)
-})
+  console.log(`Server is running on port ${PORT}.`);
+});
