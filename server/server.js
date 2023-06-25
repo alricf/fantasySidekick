@@ -14,7 +14,7 @@ app.get('/home-data', (req, res) => {
   fetch("https://fantasy.premierleague.com/api/entry/956735/history/")
     .then((res) => res.json())
     .then((data) => {
-      res.json({ message: data.past });
+      res.json(data.past);
     });
 });
 
