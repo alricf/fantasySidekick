@@ -15,13 +15,13 @@ export default function App() {
   const [totalPointsChart, setTotalPointsChart] = useState(false);
   const [rankChart, setRankChart] = useState(false);
   const [managerId, setManagerId] = useState("");
-  // let showChart = false;
+  const [input, setInput] = useState("")
+
   useEffect(() => {
-    // fetch(`http://localhost:8000/${managerId}`)
-    fetch(`http://localhost:8000/home-data`)
+    fetch(`http://localhost:8000/home-data/${managerId}`)
       .then((res) => res.json())
       .then((data) => setHomeData(data));
-  }, [showChart]);
+  }, [managerId]);
 
 
   const seasonNames = homeData.map((data) => data.season_name);
@@ -51,7 +51,7 @@ export default function App() {
     labels: seasonNames,
     datasets: [
       {
-        label: "Total Points",
+        label: "Rank",
         data: rank,
         backgroundColor: [
           "rgba(75,192,192,1)",
@@ -67,10 +67,14 @@ export default function App() {
   };
 
   // Helper Functions
+  const sc = () => {
+    setManagerId(input)
+    showTotalPointsChart()
+  };
+
   const showTotalPointsChart = () => {
     setTotalPointsChart(true);
     setRankChart(false);
-    setShowChart(true);
   };
 
   const showRankChart = () => {
@@ -81,23 +85,23 @@ export default function App() {
   // Template
   return (
     <div>
-      <form className="flex justify-center my-5" method="post" action="http://localhost:8000/home-data">
+      <div className="flex justify-center my-5">
         <label htmlFor="home">Manager ID:</label>
         <input
           id="home"
           type="text"
           name="home"
-          value={managerId}
-          onChange={(e) => setManagerId(e.target.value)}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
           className={"ml-5 border-solid border-2 border-black"}
         />
         <input
           type="submit"
           value="Submit"
           className={"border-solid border-black bg-yellow-300 border-2 ml-5"}
-          onClick={showTotalPointsChart}
+          onClick={sc}
         />
-      </form>
+      </div>
       {/* Chart Logic */}
       <div className={"flex justify-center"}>
         <Button
