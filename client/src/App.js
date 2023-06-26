@@ -11,11 +11,10 @@ Chart.register(CategoryScale);
 export default function App() {
 
   const [homeData, setHomeData] = useState([]);
-  const [showChart, setShowChart] = useState(false);
   const [totalPointsChart, setTotalPointsChart] = useState(false);
   const [rankChart, setRankChart] = useState(false);
   const [managerId, setManagerId] = useState("");
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:8000/home-data/${managerId}`)
@@ -67,9 +66,9 @@ export default function App() {
   };
 
   // Helper Functions
-  const sc = () => {
-    setManagerId(input)
-    showTotalPointsChart()
+  const showChart = () => {
+    setManagerId(input);
+    showTotalPointsChart();
   };
 
   const showTotalPointsChart = () => {
@@ -86,11 +85,11 @@ export default function App() {
   return (
     <div>
       <div className="flex justify-center my-5">
-        <label htmlFor="home">Manager ID:</label>
+        <label htmlFor="home-managerId">Manager ID:</label>
         <input
-          id="home"
+          id="home-managerId"
           type="text"
-          name="home"
+          name="home-managerId"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className={"ml-5 border-solid border-2 border-black"}
@@ -99,7 +98,7 @@ export default function App() {
           type="submit"
           value="Submit"
           className={"border-solid border-black bg-yellow-300 border-2 ml-5"}
-          onClick={sc}
+          onClick={showChart}
         />
       </div>
       {/* Chart Logic */}
