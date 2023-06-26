@@ -66,6 +66,12 @@ export default function App() {
   };
 
   // Helper Functions
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      showChart()
+    }
+  }
+
   const showChart = () => {
     setManagerId(input);
     showTotalPointsChart();
@@ -93,6 +99,7 @@ export default function App() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className={"ml-5 border-solid border-2 border-black"}
+          onKeyDown={handleEnter}
         />
         <input
           type="submit"
