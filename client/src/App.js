@@ -9,6 +9,14 @@ export default function App() {
   return (
     <>
       <Router>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>Chart</li>
+          <li>Top 100 Stats</li>
+          <li>Mini-League Stats</li>
+        </ul>
         <Routes>
           <Route exact path="/" element={<Home />} />
         </Routes>
