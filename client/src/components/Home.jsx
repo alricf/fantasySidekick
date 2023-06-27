@@ -89,6 +89,7 @@ export default function Home() {
   // Template
   return (
     <div>
+      {/* Input logic */}
       <div className="flex justify-center my-5">
         <label htmlFor="home-managerId">Manager ID:</label>
         <input
@@ -107,8 +108,9 @@ export default function Home() {
           onClick={showChart}
         />
       </div>
-      {/* Chart Logic */}
-      {totalPointsChart &&
+      {/* Chart logic */}
+      {
+        totalPointsChart &&
         <div className={"flex justify-center mb-5"}>
           <Button
             className={"border-solid border-black bg-teal-500 border-2 mr-5"}
@@ -122,13 +124,15 @@ export default function Home() {
           />
         </div>
       }
-      {totalPointsChart &&
+      {
+        totalPointsChart &&
         <LineChart
           chartData={homeTotalPointsChartData}
           text={"Season vs. Total Points"}
         />
       }
-      {rankChart &&
+      {
+        rankChart &&
         <LineChart
           chartData={homeRankChartData}
           text={"Season vs. Rank"}
