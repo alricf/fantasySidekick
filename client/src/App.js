@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <Router>
-        <ul>
+        <ul className="flex justify-center space-x-5">
           <li>
             <Link to="/">Home</Link>
           </li>
