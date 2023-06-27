@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
-import LineChart from "./LineChart"
-import Button from "./Button"
+import LineChart from "./LineChart";
+import Button from "./Button";
 
 Chart.register(CategoryScale);
 
@@ -67,9 +67,9 @@ export default function Home() {
   // Helper Functions
   const handleEnter = (e) => {
     if (e.key === "Enter") {
-      showChart()
+      showChart();
     }
-  }
+  };
 
   const showChart = () => {
     setManagerId(input);
@@ -108,18 +108,20 @@ export default function Home() {
         />
       </div>
       {/* Chart Logic */}
-      <div className={"flex justify-center"}>
-        <Button
-          className={"border-solid border-black bg-teal-500 border-2 mr-5"}
-          onClick={showTotalPointsChart}
-          buttonText={"Season vs Total Points"}
-        />
-        <Button
-          className={"border-solid border-black bg-teal-500 border-2 ml-5"}
-          onClick={showRankChart}
-          buttonText={"Season vs Rank"}
-        />
-      </div>
+      {totalPointsChart &&
+        <div className={"flex justify-center"}>
+          <Button
+            className={"border-solid border-black bg-teal-500 border-2 mr-5"}
+            onClick={showTotalPointsChart}
+            buttonText={"Season vs Total Points"}
+          />
+          <Button
+            className={"border-solid border-black bg-teal-500 border-2 ml-5"}
+            onClick={showRankChart}
+            buttonText={"Season vs Rank"}
+          />
+        </div>
+      }
       {totalPointsChart &&
         <LineChart
           chartData={homeTotalPointsChartData}
