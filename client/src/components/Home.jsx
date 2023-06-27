@@ -109,7 +109,7 @@ export default function Home() {
       </div>
       {/* Chart Logic */}
       {totalPointsChart &&
-        <div className={"flex justify-center"}>
+        <div className={"flex justify-center mb-5"}>
           <Button
             className={"border-solid border-black bg-teal-500 border-2 mr-5"}
             onClick={showTotalPointsChart}
