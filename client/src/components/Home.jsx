@@ -20,9 +20,8 @@ export default function Home() {
     fetch(`http://localhost:8000/home-data/${managerId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.error === "Error: Manager ID incorrect") {
-          setError(data.error);
+        if (data.errorMsg) {
+          setError(data.errorMsg);
           return;
         }
         setError("");
@@ -30,7 +29,6 @@ export default function Home() {
         return;
       });
   }, [managerId]);
-  console.log(error);
 
   const seasonNames = homeData.map((data) => data.season_name);
   const totalPoints = homeData.map((data) => data.total_points);
@@ -121,13 +119,13 @@ export default function Home() {
       {/* Chart logic */}
       {
         // Error handling
-        (error === "Error: Manager ID incorrect - Enter a valid Manager ID") &&
+        (error) &&
         <p className="flex justify-center text-2xl text-red-600 font-bold">
           {error}
         </p>
       }
       {
-        ((error === "") && totalPointsChart) &&
+        ((!error) && totalPointsChart) &&
         <div className={"flex justify-center mb-5"}>
           <Button
             className={"border-solid border-black bg-teal-500 border-2 mr-5"}
@@ -142,14 +140,14 @@ export default function Home() {
         </div>
       }
       {
-        ((error === "") && totalPointsChart) &&
+        ((!error) && totalPointsChart) &&
         <LineChart
           chartData={homeTotalPointsChartData}
           text={"Season vs. Total Points"}
         />
       }
       {
-        ((error === "") && rankChart) &&
+        ((!error) && rankChart) &&
         <LineChart
           chartData={homeRankChartData}
           text={"Season vs. Rank"}
