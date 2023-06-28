@@ -121,7 +121,7 @@ export default function Home() {
       {/* Chart logic */}
       {
         // Error handling
-        (error === "Error: Manager ID incorrect") &&
+        (error === "Error: Manager ID incorrect - Enter a valid Manager ID") &&
         <p className="flex justify-center text-2xl text-red-600 font-bold">
           {error}
         </p>
