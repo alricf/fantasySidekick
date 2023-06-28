@@ -129,7 +129,7 @@ export default function Home() {
         </p>
       }
       {
-        ((!error) && totalPointsChart) &&
+        ((!error) && (totalPointsChart || rankChart)) &&
         <div className={"flex justify-center mb-5"}>
           <Button
             className={"border-solid border-black bg-teal-500 border-2 mr-5"}
