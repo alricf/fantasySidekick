@@ -14,13 +14,23 @@ export default function Home() {
   const [rankChart, setRankChart] = useState(false);
   const [managerId, setManagerId] = useState("");
   const [input, setInput] = useState("");
+  const [error, setError] = useState("")
 
   useEffect(() => {
     fetch(`http://localhost:8000/home-data/${managerId}`)
       .then((res) => res.json())
-      .then((data) => setHomeData(data));
+      .then((data) => {
+        console.log(data)
+        if (data.error === "Error: Manager ID incorrect") {
+          setError(data.error)
+          return
+        }
+        setError("")
+        setHomeData(data)
+        return
+      });
   }, [managerId]);
-
+  console.log(error)
 
   const seasonNames = homeData.map((data) => data.season_name);
   const totalPoints = homeData.map((data) => data.total_points);
@@ -110,7 +120,12 @@ export default function Home() {
       </div>
       {/* Chart logic */}
       {
-        totalPointsChart &&
+        // Error handling
+        (error === "Error: Manager ID incorrect") && 
+        <h1>{error}</h1>
+      }
+      {
+        ((error === "") && totalPointsChart) &&
         <div className={"flex justify-center mb-5"}>
           <Button
             className={"border-solid border-black bg-teal-500 border-2 mr-5"}
@@ -125,14 +140,14 @@ export default function Home() {
         </div>
       }
       {
-        totalPointsChart &&
+        ((error === "") && totalPointsChart) &&
         <LineChart
           chartData={homeTotalPointsChartData}
           text={"Season vs. Total Points"}
         />
       }
       {
-        rankChart &&
+        ((error === "") && rankChart) &&
         <LineChart
           chartData={homeRankChartData}
           text={"Season vs. Rank"}
