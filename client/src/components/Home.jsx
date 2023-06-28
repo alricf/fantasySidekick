@@ -14,23 +14,23 @@ export default function Home() {
   const [rankChart, setRankChart] = useState(false);
   const [managerId, setManagerId] = useState("");
   const [input, setInput] = useState("");
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:8000/home-data/${managerId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.error === "Error: Manager ID incorrect") {
-          setError(data.error)
-          return
+          setError(data.error);
+          return;
         }
-        setError("")
-        setHomeData(data)
-        return
+        setError("");
+        setHomeData(data);
+        return;
       });
   }, [managerId]);
-  console.log(error)
+  console.log(error);
 
   const seasonNames = homeData.map((data) => data.season_name);
   const totalPoints = homeData.map((data) => data.total_points);
@@ -121,8 +121,10 @@ export default function Home() {
       {/* Chart logic */}
       {
         // Error handling
-        (error === "Error: Manager ID incorrect") && 
-        <h1>{error}</h1>
+        (error === "Error: Manager ID incorrect") &&
+        <p className="flex justify-center text-2xl text-red-600 font-bold">
+          {error}
+        </p>
       }
       {
         ((error === "") && totalPointsChart) &&
