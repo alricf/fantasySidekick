@@ -80,6 +80,10 @@ export default function Home() {
   };
 
   const showChart = () => {
+    if (!input) {
+      setError("Error: Manager ID not provided - Enter a valid Manager ID");
+      return;
+    }
     setManagerId(input);
     showTotalPointsChart();
   };
