@@ -14,7 +14,8 @@ app.get(`/home-data/:managerId`, (req, res) => {
   managerId = req.params.managerId;
   fetch(`https://fantasy.premierleague.com/api/entry/${managerId}/history/`)
     .then((res) => res.json())
-    .then((data) => res.json(data.past));
+    .then((data) => res.json(data.past))
+    .catch(() => res.json({error: "Error: Manager ID incorrect"}))
 });
 
 app.listen(PORT, () => {
