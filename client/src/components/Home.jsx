@@ -17,17 +17,19 @@ export default function Home() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:8000/home-data/${managerId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.errorMsg) {
-          setError(data.errorMsg);
+    if (managerId) {
+      fetch(`http://localhost:8000/home-data/${managerId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.errorMsg) {
+            setError(data.errorMsg);
+            return;
+          }
+          setError("");
+          setHomeData(data);
           return;
-        }
-        setError("");
-        setHomeData(data);
-        return;
-      });
+        });
+    }
   }, [managerId]);
 
   const seasonNames = homeData.map((data) => data.season_name);
