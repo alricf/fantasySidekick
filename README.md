@@ -4,7 +4,7 @@
 ## Current Fantasy Leagues in Development
  - Fantasy Premier League
 
- ## Stack
+ ## Tech Stack
  - React
  - Express
  - Node
