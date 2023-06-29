@@ -9,9 +9,7 @@ export default function NavBar() {
       <li className="border-black border-2 bg-sky-400 px-2">
         <Link to="/">Home</Link>
       </li>
-      <li className="border-black border-2 bg-sky-400 px-2">
-      <Link to="/chart">Chart</Link>
-      </li>
+      <li className="border-black border-2 bg-sky-400 px-2">Chart</li>
       <li className="border-black border-2 bg-sky-400 px-2">Top 100 Stats</li>
       <li className="border-black border-2 bg-sky-400 px-2">Mini-League Stats</li>
     </ul>
