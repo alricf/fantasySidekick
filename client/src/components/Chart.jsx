@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-// const axios = require('axios');
-import axios from 'axios'
+import axios from 'axios';
 
 export default function Chart() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/chart`)
+    axios
+      .get(`http://localhost:8000/chart`, {
+        params: {
+          playerName: 'Xhaka',
+          gameWeekFrom: 37,
+          gameWeekTo: 38,
+        }
+      })
       .then((res) => {
         console.log(res.data);
       });
