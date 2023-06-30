@@ -20,16 +20,21 @@ app.get(`/home-data/:managerId`, (req, res) => {
 });
 
 app.get(`/chart`, (req, res) => {
+  // console.log(req.params.gameWeekFrom)
+  let playerName = req.query.playerName;
+  let gameWeekFrom = req.query.gameWeekFrom;
+  let gameWeekTo = req.query.gameWeekTo;
+
   axios.get(`https://fantasy.premierleague.com/api/bootstrap-static/`)
     .then(res => {
-      playerObj = res.data.elements.filter(element => element.second_name === 'Xhaka');
+      playerObj = res.data.elements.filter(element => element.second_name === playerName);
       let playerId = playerObj[0].id;
       return playerId;
     })
     .then((playerId) => {
       let playerGameweekExtractedObjArr = [];
       let promises = [];
-      for (let i = 37; i <= 38; i++) {
+      for (let i = gameWeekFrom; i <= gameWeekTo; i++) {
         promises.push(axios.get(`https://fantasy.premierleague.com/api/event/${i}/live/`)
           .then(res => {
             let playerGameweekObjArr = res.data.elements.filter(element => {
@@ -45,8 +50,8 @@ app.get(`/chart`, (req, res) => {
           for (let i = 0; i < playerGameweekExtractedObjArr.length; i++) {
             statArr.push(playerGameweekExtractedObjArr[i].stats.expected_goal_involvements);
           }
-          console.log(statArr);
-          res.json(statArr)
+          // console.log(statArr);
+          res.json(statArr);
         });
     });
 });
