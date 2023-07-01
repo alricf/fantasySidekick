@@ -9,8 +9,9 @@ export default function Chart() {
       .get(`http://localhost:8000/chart`, {
         params: {
           playerName: 'Xhaka',
-          gameWeekFrom: 37,
-          gameWeekTo: 38,
+          gameweekFrom: 37,
+          gameweekTo: 38,
+          stat: "xgi"
         }
       })
       .then((res) => {

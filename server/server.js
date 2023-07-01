@@ -22,8 +22,12 @@ app.get(`/home-data/:managerId`, (req, res) => {
 app.get(`/chart`, (req, res) => {
   // Assigning variables
   let playerName = req.query.playerName;
-  let gameWeekFrom = req.query.gameWeekFrom;
-  let gameWeekTo = req.query.gameWeekTo;
+  let gameweekFrom = req.query.gameweekFrom;
+  let gameweekTo = req.query.gameweekTo;
+  let stat = ""
+  if (req.query.stat === "xgi") {
+    stat = "expected_goal_involvements"
+  }
 
   // Making axios call to fpl API for player id
   axios.get(`https://fantasy.premierleague.com/api/bootstrap-static/`)
@@ -37,14 +41,14 @@ app.get(`/chart`, (req, res) => {
       let promises = [];
 
       // Looping to get player gameweek data
-      for (let i = gameWeekFrom; i <= gameWeekTo; i++) {
+      for (let i = gameweekFrom; i <= gameweekTo; i++) {
         promises.push(axios.get(`https://fantasy.premierleague.com/api/event/${i}/live/`)
           .then(res => {
             let playerGameweekObjArr = res.data.elements.filter(element => {
               return element.id === playerId;
             });
             // Assign key as gameweek and value as statistic for player in the gameweek
-            playerGameweekStatObj[i] = playerGameweekObjArr[0].stats.expected_goal_involvements
+            playerGameweekStatObj[i] = playerGameweekObjArr[0].stats[stat]
           }));
       }
       Promise.all(promises)
