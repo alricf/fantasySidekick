@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import LineChart from "./LineChart";
 
 export default function Chart() {
 
@@ -12,7 +13,7 @@ export default function Chart() {
       .get(`http://localhost:8000/chart`, {
         params: {
           playerName: 'Xhaka',
-          gameweekFrom: 37,
+          gameweekFrom: 1,
           gameweekTo: 38,
           stat: "xgi"
         }
@@ -22,7 +23,7 @@ export default function Chart() {
         let sortResDataArr = Object.entries(res.data)
         
         // Sort array by keys of response data object
-        let sortResDataByKeyArr = sortResDataArr.sort((a,b) => a[0].localeCompare(b[0]));
+        let sortResDataByKeyArr = sortResDataArr.sort((a,b) => a[0]-b[0]);
         setChartPageData(sortResDataByKeyArr)
       });
   }, []);
@@ -33,8 +34,31 @@ export default function Chart() {
   }
   console.log(gameweekArr)
   console.log(statArr)
+  let playerGameweekStatChartData = {
+    labels: gameweekArr,
+    datasets: [
+      {
+        label: "xGI",
+        data: statArr,
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0"
+        ],
+        borderColor: "black",
+        borderWidth: 2
+      }
+    ]
+  }
+
   return (
     <>
+    <LineChart
+          chartData={playerGameweekStatChartData}
+          text={"Season vs. Statistic"}
+        />
     </>
   );
 }
