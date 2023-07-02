@@ -18,6 +18,22 @@ export default function LineChart({ chartData, text }) {
             legend: {
               display: false
             }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Season',
+                color: 'black'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: chartData.datasets[0].label,
+                color: 'black'
+              }
+            }
           }
         }}
       />
