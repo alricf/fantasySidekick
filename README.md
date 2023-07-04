@@ -1,8 +1,5 @@
 ## Fantasy Sidekick
- A web application that is used to help fantasy sports players perform to the best of their abilities.
-
-## Current Fantasy Leagues in Development
- - Fantasy Premier League
+A web application that assists Fantasy Premier League managers by providing tools and metrics built with live FPL API data.
 
  ## Tech Stack
  - React
