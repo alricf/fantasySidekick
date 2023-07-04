@@ -32,8 +32,8 @@ export default function Chart() {
     gameweekArr.push(data[0])
     statArr.push(data[1])
   }
-  console.log(gameweekArr)
-  console.log(statArr)
+  // console.log(gameweekArr)
+  // console.log(statArr)
   let playerGameweekStatChartData = {
     labels: gameweekArr,
     datasets: [
@@ -58,6 +58,7 @@ export default function Chart() {
     <LineChart
           chartData={playerGameweekStatChartData}
           text={"Season vs. Statistic"}
+          title={"Player Chart"}
         />
     </>
   );
