@@ -150,6 +150,7 @@ export default function Home() {
         <LineChart
           chartData={homeTotalPointsChartData}
           text={"Season vs. Total Points"}
+          title={"Manager Chart"}
         />
       }
       {
@@ -157,6 +158,7 @@ export default function Home() {
         <LineChart
           chartData={homeRankChartData}
           text={"Season vs. Rank"}
+          title={"Manager Chart"}
         />
       }
     </div>
