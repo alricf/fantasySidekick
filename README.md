@@ -5,3 +5,4 @@ A web application that assists Fantasy Premier League managers by providing tool
  - React
  - Express
  - Node
+ - Tailwind
